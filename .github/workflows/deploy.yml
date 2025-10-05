@@ -35,7 +35,7 @@ jobs:
 
       - name: Sync to S3
         run: |
-          aws s3 sync build/ s3://my-react-prod-site-123 --delete
+          aws s3 sync build/ s3://my-react-prod-site-1 --delete
 
       - name: Invalidate CloudFront Cache
         run: |
