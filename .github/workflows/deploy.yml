@@ -30,15 +30,15 @@ jobs:
       - name: Configure AWS Credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::<ACCOUNT_ID>:role/<YOUR_OIDC_ROLE_NAME>
+          role-to-assume: arn:aws:iam::697728436610:role/cf_temp_role
           aws-region: ap-south-1
 
       - name: Sync to S3
         run: |
-          aws s3 sync build/ s3://my-react-prod-site-123 --delete
+          aws s3 sync build/ s3://my-react-prod-site-1 --delete
 
       - name: Invalidate CloudFront Cache
         run: |
           aws cloudfront create-invalidation \
-            --distribution-id <DISTRIBUTION_ID> \
+            --distribution-id E2UVEE9WBTAG0K \
             --paths "/*"
